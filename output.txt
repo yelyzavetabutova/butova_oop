@@ -1,0 +1,9 @@
+File: input01.txt
+Max Area: 1385.44
+Max Perimeter: 131.95
+File: input02.txt
+Max Area: 1963.5
+Max Perimeter: 157.08
+File: input03.txt
+Max Area: 1963.5
+Max Perimeter: 157.08
