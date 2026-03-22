@@ -1,0 +1,60 @@
+import turtle
+
+class Petal:
+    def draw(self, t, color):
+        t.color(color)
+        t.begin_fill()
+        t.circle(20)
+        t.end_fill()
+
+class Stem:
+    def draw(self, t):
+        t.color("green")
+        t.setheading(270)
+        t.forward(100)
+
+class Leaf:
+    def draw(self, t):
+        t.color("green")
+        t.begin_fill()
+        t.circle(10)
+        t.end_fill()
+
+class Flower:
+    def __init__(self):
+        self.p = Petal()
+        self.s = Stem()
+        self.l = Leaf()
+
+    def draw(self, t, x, y, color):
+        t.penup()
+        t.goto(x, y)
+        t.setheading(0)
+        t.pendown()
+        self.s.draw(t)
+        t.penup()
+        t.goto(x, y - 50)
+        t.pendown()
+        self.l.draw(t)
+        t.penup()
+        t.setheading(0)
+        t.goto(x, y)
+        t.pendown()
+        for _ in range(6):
+            self.p.draw(t, color)
+            t.right(60)
+
+t = turtle.Turtle()
+t.speed(0)
+f = Flower()
+
+n = int(input("Скільки квіток? "))
+vidstan = 100
+start_x = -(n - 1) * vidstan / 2
+
+for i in range(n):
+    x_pos = start_x + (i * vidstan)
+    f.draw(t, x_pos, 0, "red")
+
+t.hideturtle()
+turtle.done()
